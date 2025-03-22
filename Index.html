@@ -1,182 +1,178 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Cashify - Make Easy Money Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0e0e0e;
-      color: white;
+    * {
       -webkit-user-select: none;
       user-select: none;
     }
-
-    .container {
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-      text-align: center;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
     }
-
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #111;
+      border-bottom: 1px solid #333;
+    }
     .logo {
-      width: 100px;
+      width: 80px;
       border-radius: 20px;
     }
-
     h1 {
-      margin-top: 1rem;
-      font-size: 2rem;
+      margin: 10px 0 5px;
     }
-
-    .desc {
-      margin: 0.5rem 0 1rem;
-      font-size: 1.1rem;
-      color: #ccc;
-    }
-
-    #install-btn, #share-btn {
-      padding: 1rem 2rem;
-      margin: 1rem 0.5rem;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      background: #00ffc8;
-      color: #000;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    #install-btn:hover, #share-btn:hover {
-      background: #00b89e;
-    }
-
-    #version {
-      font-size: 0.9rem;
+    p.description {
       color: #aaa;
-      margin-top: 5px;
-      display: block;
+      font-size: 1em;
+      margin-bottom: 10px;
     }
-
+    .meta {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin-bottom: 20px;
+    }
+    .install-btn {
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+      background: #00ff88;
+      color: #000;
+      border: none;
+      padding: 15px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .install-btn:hover {
+      background: #00cc6e;
+    }
     .screenshots {
       display: flex;
       gap: 10px;
-      margin-top: 2rem;
       overflow-x: auto;
+      padding: 15px;
       justify-content: center;
-      flex-wrap: wrap;
     }
-
     .screenshots img {
-      width: 150px;
-      height: auto;
+      height: 200px;
+      border: 3px solid #00ff88;
       border-radius: 10px;
-      border: 2px solid #0ff;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: 0.2s;
     }
-
     .screenshots img:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
-
-    .popup {
+    .fullscreen {
       position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.9);
-      display: none;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      display: flex;
       justify-content: center;
       align-items: center;
       z-index: 999;
-      padding: 1rem;
-    }
-
-    .popup img {
-      max-width: 95%;
-      max-height: 90vh;
-      border-radius: 10px;
-    }
-
-    .popup .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
-
-    .share-popup {
       display: none;
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #222;
-      padding: 1rem;
-      border: 2px solid #0ff;
+      flex-direction: column;
+    }
+    .fullscreen img {
+      max-width: 95%;
+      max-height: 90%;
+      border: 3px solid #00ff88;
       border-radius: 10px;
-      z-index: 999;
     }
-
-    .share-popup input {
-      width: 300px;
-      padding: 0.5rem;
-      border: none;
-      border-radius: 5px;
-      margin-right: 10px;
-    }
-
-    .share-popup button {
-      background: #00ffc8;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+    .close-btn {
+      margin-top: 15px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #00ff88;
+      padding: 8px 16px;
       cursor: pointer;
     }
-
-    .meta {
-      margin-top: 1rem;
-      color: #888;
+    .share-btn {
+      margin: 20px auto;
+      display: block;
+      background: #4444ff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .share-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #111;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #00ff88;
+      z-index: 1000;
+      display: none;
+      width: 300px;
+      text-align: center;
+    }
+    .share-popup input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .share-popup button {
+      margin-top: 10px;
+      padding: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://th.bing.com/th/id/OIG3.agwSn_KSOBpPJUr311cn?dpr=1,9&pid=ImgDetMain" alt="Cashify Logo" class="logo">
-    <h1>Cashify</h1>
-    <p class="desc">Make easy money online</p>
+  <header>
+    <img class="logo" src="https://th.bing.com/th/id/OIG3.agwSn_KSOBpPJUr311cn?dpr=1,9&pid=ImgDetMain" alt="Cashify Logo">
+    <h1>CASHIFY</h1>
+    <p class="description">Make Easy Money Online</p>
+    <p class="meta">Version: <span id="version">Loading...</span> • Size: 30MB</p>
+  </header>
 
-    <button id="install-btn">Install</button>
-    <button id="share-btn">Share</button>
-    <span id="version">vLoading...</span>
-    <p class="meta">Size: 30MB</p>
+  <button class="install-btn" id="installBtn">Install</button>
 
-    <div class="screenshots">
-      <img src="https://i.ibb.co/fz9DhW0H/Screenshot-20250321-195324.jpg" alt="screenshot">
-      <img src="https://i.ibb.co/Y7b6d1fD/Screenshot-20250321-184003.jpg" alt="screenshot">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt2QfUqOLOmFJ7-h0-numjCSmE31cfKUAXDZiqGKmNUQUa7A5foouJRDnX&s=10" alt="screenshot">
-    </div>
+  <div class="screenshots">
+    <img src="https://i.ibb.co/fz9DhW0H/Screenshot-20250321-195324.jpg">
+    <img src="https://i.ibb.co/Y7b6d1fD/Screenshot-20250321-184003.jpg">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt2QfUqOLOmFJ7-h0-numjCSmE31cfKUAXDZiqGKmNUQUa7A5foouJRDnX&s=10">
   </div>
 
-  <!-- Screenshot Popup -->
-  <div class="popup" id="screenshot-popup">
-    <span class="close" id="popup-close">&times;</span>
-    <img id="popup-img" src="" alt="">
+  <button class="share-btn" id="shareBtn">Share</button>
+
+  <div class="share-popup" id="sharePopup">
+    <p>Copy or share the app:</p>
+    <input type="text" value="https://apk.e-droid.net/apk/app3524161-29pqko.apk?v=2" readonly>
+    <button onclick="navigator.clipboard.writeText('https://apk.e-droid.net/apk/app3524161-29pqko.apk?v=2')">Copy Link</button>
+    <button onclick="window.open('https://wa.me/?text=https://apk.e-droid.net/apk/app3524161-29pqko.apk?v=2')">WhatsApp</button>
+    <button onclick="document.getElementById('sharePopup').style.display='none'">Close</button>
   </div>
 
-  <!-- Share Popup -->
-  <div class="share-popup" id="share-popup">
-    <input type="text" readonly value="https://apk.e-droid.net/apk/app3524161-29pqko.apk?v=2" id="share-link">
-    <button onclick="copyShareLink()">Copy</button>
+  <div class="fullscreen" id="fullscreenViewer">
+    <img id="fullImg">
+    <button class="close-btn" onclick="document.getElementById('fullscreenViewer').style.display='none'">Close</button>
   </div>
 
-  <!-- Firebase Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getDatabase, ref, update, get, increment } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    import { getDatabase, ref, increment, onValue, update, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -184,10 +180,9 @@
       authDomain: "itzhoyoo-f9f7e.firebaseapp.com",
       databaseURL: "https://itzhoyoo-f9f7e-default-rtdb.firebaseio.com",
       projectId: "itzhoyoo-f9f7e",
-      storageBucket: "itzhoyoo-f9f7e.appspot.com",
+      storageBucket: "itzhoyoo-f9f7e.firebasestorage.app",
       messagingSenderId: "1094792075584",
-      appId: "1:1094792075584:web:d49e9c3f899d3cd31082a5",
-      measurementId: "G-LLT6F9WRKH"
+      appId: "1:1094792075584:web:d49e9c3f899d3cd31082a5"
     };
 
     const app = initializeApp(firebaseConfig);
@@ -195,51 +190,31 @@
     const auth = getAuth(app);
 
     signInAnonymously(auth).then(() => {
-      const statsRef = ref(db, 'stats');
-      update(statsRef, { visits: increment(1) });
-
-      const appInfoRef = ref(db, 'appInfo');
-      get(appInfoRef).then(snapshot => {
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          const version = data.version || 'Unknown';
-          const apkLink = data.apkLink || '#';
-
-          document.getElementById('version').textContent = `v${version}`;
-
-          document.getElementById('install-btn').onclick = () => {
-            update(statsRef, { installs: increment(1) });
-            window.location.href = apkLink;
-          };
-
-          document.getElementById('share-btn').onclick = () => {
-            update(statsRef, { shares: increment(1) });
-            document.getElementById('share-popup').style.display = 'block';
-          };
-        }
-      });
-    });
-  </script>
-
-  <!-- Screenshot Logic -->
-  <script>
-    document.querySelectorAll('.screenshots img').forEach(img => {
-      img.addEventListener('click', () => {
-        document.getElementById('popup-img').src = img.src;
-        document.getElementById('screenshot-popup').style.display = 'flex';
-      });
+      const visitRef = ref(db, "tracking/visits");
+      update(ref(db, "tracking"), { visits: increment(1) });
     });
 
-    document.getElementById('popup-close').onclick = () => {
-      document.getElementById('screenshot-popup').style.display = 'none';
-    };
+    document.getElementById("installBtn").addEventListener("click", () => {
+      update(ref(db, "tracking"), { installs: increment(1) });
+      window.location.href = "https://apk.e-droid.net/apk/app3524161-29pqko.apk?v=2";
+    });
 
-    function copyShareLink() {
-      const link = document.getElementById('share-link');
-      link.select();
-      document.execCommand('copy');
-      alert("Link copied to clipboard!");
-    }
+    document.getElementById("shareBtn").addEventListener("click", () => {
+      update(ref(db, "tracking"), { shares: increment(1) });
+      document.getElementById("sharePopup").style.display = "block";
+    });
+
+    const versionRef = ref(db, "app/version");
+    onValue(versionRef, snap => {
+      document.getElementById("version").innerText = snap.exists() ? snap.val() : "1.0";
+    });
+
+    document.querySelectorAll(".screenshots img").forEach(img => {
+      img.addEventListener("click", () => {
+        document.getElementById("fullImg").src = img.src;
+        document.getElementById("fullscreenViewer").style.display = "flex";
+      });
+    });
   </script>
 </body>
 </html>
